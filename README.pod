@@ -1,7 +1,7 @@
 =head1 Personal misc files.
 
 =head2 Currently: 
-=over 3
+=over 
 =item *
   el,  an elimage's perl version.# What is elimage? see L<img.vim-cn.com>
 =item *
