@@ -2,9 +2,7 @@
 # vim:fileencoding=utf-8
 
 $dest_url = "http://img.vim-cn.com/";
-foreach (@ARGV){
-  push @cmd,("-F",'name=@'.$_);
-}
+push @cmd,("-F",'name=@'.$_) foreach @ARGV;
 unshift @cmd,("curl", $dest_url);
-open STDOUT,">>","logfile";
+open STDOUT,">>","/var/log/lord/el.log"; # Make sure you have its write privilege.
 system @cmd;
