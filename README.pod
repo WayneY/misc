@@ -8,5 +8,7 @@
 
 =item * zshrc, my .zshrc
 
+=item * tips, add random tips.
+
 =back
 
