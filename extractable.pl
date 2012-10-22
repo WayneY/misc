@@ -1,8 +1,9 @@
 #!/usr/bin/perl
 use 5.016;
+use Transfer;
 
 my %hash;
-open IN,'<',pop @ARGV;
+open IN,'<',pop;
 my $key;
 my $value;
 while(<IN>){
@@ -11,17 +12,17 @@ while(<IN>){
         $key = $1;
         $value = '';
     }
-    $value .= $_."\n";
+    $value .= &Transfer::transfer($_)."\n";
     $hash{$key} = $value;
 }
 close IN;
 
-open IN,'<',pop @ARGV;
+open IN,'<',pop;
 while(<IN>){
     chomp;
     if(/(prompt (\w+)\.\.\.)/){
         say $1;
-        say "Creaet table $2(";
+        #say "Create table $2";
         say $hash{uc $2};
     }
 }
