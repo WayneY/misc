@@ -10,5 +10,7 @@
 
 =item * tips, add random tips.
 
+=item * extractable, to extract table creating strings from SQL dump file base on index file.
+
 =back
 
