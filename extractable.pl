@@ -2,28 +2,18 @@
 use 5.016;
 use Transfer;
 
-my %hash;
-open IN,'<',pop;
-my $key;
-my $value;
+my (%hash,$cont);
+open IN,'<',shift;
 while(<IN>){
     chomp;
-    if(/CREATE TABLE "KS"\."(\w+)"/){
-        $key = $1;
-        $value = '';
-    }
-    $value .= &Transfer::transfer($_)."\n";
-    $hash{$key} = $value;
+    $hash{$1} = 1 if /prompt (\w+)\.\.\./;
 }
 close IN;
 
-open IN,'<',pop;
+open IN,'<',shift;
 while(<IN>){
     chomp;
-    if(/(prompt (\w+)\.\.\.)/){
-        say $1;
-        #say "Create table $2";
-        say $hash{uc $2};
-    }
+    $cont = defined $hash{lc $1} ? say "prompt ".lc $1."..." : 0 if /CREATE TABLE "KS"\."(\w+)"/;
+    say &Transfer::transfer if $cont == 1;
 }
 close IN;
