@@ -1,0 +1,30 @@
+#!/usr/bin/perl
+#######################################################
+##  write tips in one sentence
+#######################################################
+use 5.010;
+
+my $optsnum = @ARGV;
+if ($optsnum == 1){
+    my $first = shift @ARGV;
+    if($first=='help'){
+        say "to be continue";
+    }else{
+        say "not enough arguments.";
+    }
+}
+
+say "not enough arguments" if $optsnum<1;
+
+if($optsnum>=2){
+    $first = shift @ARGV;
+    $second = shift @ARGV;
+    $filename = "/home/mylord/Documents/tips";
+    if (-e $filename){
+        open OUT,'>>',$filename or die "Cannot open tips file!: $!";
+    }else{
+        open OUT,'>',$filename or die "Cannot open tips file!: $!";
+    }        
+    print OUT "[$first] $second\n";
+    close OUT;
+}    

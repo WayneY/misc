@@ -1,13 +1,14 @@
 =head1 Personal misc files.
 
-=head2 Currently: 
+=head2 Currently:
 
-=over 2
+=over 
 
-=item el,  an elimage's perl version.# What is elimage? see L<img.vim-cn.com>
+=item * el,  an elimage's perl version. # What is elimage? see L<http://img.vim-cn.com>
 
-=item zshrc, my .zshrc
+=item * zshrc, my .zshrc
+
+=item * tips, add random tips.
 
 =back
 
-=cut

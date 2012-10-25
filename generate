@@ -1,0 +1,3 @@
+#!/bin/zsh
+for i in `cat $1` 
+    print $i && sed -n "/create or replace function hsman.$i/,/end $i/p" $2 > $i.sql
