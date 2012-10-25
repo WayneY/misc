@@ -6,5 +6,5 @@ foreach (@ARGV){
   push @cmd,("-F",'name=@'.$_);
 }
 unshift @cmd,("curl", $dest_url);
-open STDOUT,">>","logfile";
+open STDOUT,">>","/var/log/lord/el.log";
 system @cmd;
