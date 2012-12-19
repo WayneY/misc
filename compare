@@ -1,0 +1,42 @@
+#!/usr/bin/perl
+use strict;
+
+my ($fileA,$fileB) = @ARGV;
+
+my %ta;
+open A,'<',$fileA or die "Unable to open file:$fileA:$!";
+while(<A>){
+  chomp;
+  $ta{$_} = 1;
+}
+
+my @B;
+open B,'<',$fileB or die "Unable to open file:$fileB:$!";
+while(<B>){
+    chomp;
+    unless (defined $ta{$_}){
+        push @B,$_; 
+    }else{
+        $ta{$_} = 0;
+    }
+
+}
+
+
+print "\n================= BEGIN ===================\n";
+
+my $countA;
+print "\nRemain in files $fileA:\n";
+foreach (keys %ta) {
+    $countA += $ta{$_}>0? print $_."\n":0;
+}
+print "\n--------------$countA lines----------------\n";
+
+my $countB;
+print "\nRemains in files $fileB:\n";
+print $_."\n" foreach @B;
+$countB = scalar @B;
+print "\n--------------$countB lines----------------\n";
+
+print "\nThe two files are identical\n" if $countA == 0 and $countB ==0;
+print "\n=================== END ===================\n";
