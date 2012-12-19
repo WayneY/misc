@@ -12,5 +12,7 @@
 
 =item * extractable, to extract table creating strings from SQL dump file base on index file.
 
+=item * compare, compare two files' text contents  by line, no matter the line's order in file.
+
 =back
 
