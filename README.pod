@@ -14,5 +14,7 @@
 
 =item * compare, compare two files' text contents  by line, no matter the line's order in file.
 
+=item * reorder, re-order the Amego style file by the index's suffix.
+
 =back
 
