@@ -20,7 +20,7 @@ sub reorder{
             $order_no_origin = $1;
         }
         elsif(/\w+/){
-            $hash{$order_no_origin} = [$_,join('',reverse (split //,$_))];
+            $hash{$order_no_origin} = [$_, scalar reverse $_];
         }
     }
     close IN;
