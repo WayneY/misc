@@ -86,7 +86,7 @@
 
   logstash的配置：
 
-  '''
+  ```
   	input {
   		file{  
   			path => "/root/NLPKEYWord/output/tfidf.txt"   #必须写绝对路径
@@ -108,4 +108,4 @@
   			index => "hotword"
   		}
   	}
-  '''
+  ```
